@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "a4bdee83-27a8-40d8-84ae-254fe136514a",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28576003"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"user1\",\r\n    \"email\":\"one@one.com\",\r\n    \"password\":\"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"one@one.com\",\r\n    \"password\":\"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Createblog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test blog 4",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "This is the first test blog  4",
+							"type": "text"
+						},
+						{
+							"key": "coverImage",
+							"type": "file",
+							"src": "/E:/Pictures/avatar.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBlogs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtered blogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs/filter?title=test&author=user1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "test"
+						},
+						{
+							"key": "author",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blogs Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs/6666f8d08ca533e8240a966d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs",
+						"6666f8d08ca533e8240a966d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Blog",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY2ZGYyYTMxZTVmMTlhNzkyZmE5MzUiLCJlbWFpbCI6Im9uZUBvbmUuY29tIiwiZnVsbE5hbWUiOiJ1c2VyMSIsImlhdCI6MTcxODAyMzg4OCwiZXhwIjoxNzE4MTEwMjg4fQ.rjWHEsuZTHLgcKjNBrLOnNiJ6fAKJCNLeKM4hOVLa98; Path=/; Secure; HttpOnly;"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test blog 4\",\r\n    \"content\": \"This blog is updated by user1 again test blog 5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs/6666f8d08ca533e8240a966d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs",
+						"6666f8d08ca533e8240a966d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete BLOG",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/blogs/6666f7666dff02082683c497",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"blogs",
+						"6666f7666dff02082683c497"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
