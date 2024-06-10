@@ -72,6 +72,10 @@
 
 
 ## API Endpoints
+
+### PostMan Collection for all routes
+- [Postman Collection](postmanCollection/Blog.postman_collection.json)
+
 ### User Routes
 
 - POST /api/v1/users/register: Register a new user.
